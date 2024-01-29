@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Proyecto1.Controladores;
+using Proyecto1.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Proyecto1
 {
@@ -27,6 +30,27 @@ namespace Proyecto1
             Login volver= new Login();
             volver.Show();
             this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegis1_Click(object sender, EventArgs e)
+        {
+            string usuario = txtNomUser.Text;
+            string contraseña = txtPass.Text;
+
+            
+            Usuario nuevoUsuario = new Usuario
+            {
+                user = usuario,
+                Contraseña = contraseña
+            };
+
+            
+           
         }
     }
 }
