@@ -10,16 +10,16 @@ namespace Proyecto1.Modelo
     {
         public int Id { get; set; }
         public string user { get; set; }
-        public string Contraseña { get; set; }
+        public string Contrasenia { get; set; }
 
     
     public Usuario()
     {
     }
-    public Usuario(int Id ,string user, string contraseña, int v)
+    public Usuario(int Id ,string user, string contrasenia, int v)
         {
             this.user = user;
-            Contraseña = contraseña;
+            Contrasenia = contrasenia;
         }
     }
 }

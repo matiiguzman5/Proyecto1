@@ -35,11 +35,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.boxArea = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnRegis1
             // 
-            this.btnRegis1.Location = new System.Drawing.Point(296, 259);
+            this.btnRegis1.Location = new System.Drawing.Point(301, 273);
             this.btnRegis1.Name = "btnRegis1";
             this.btnRegis1.Size = new System.Drawing.Size(75, 23);
             this.btnRegis1.TabIndex = 0;
@@ -49,7 +51,7 @@
             // 
             // btnVolverigis
             // 
-            this.btnVolverigis.Location = new System.Drawing.Point(396, 259);
+            this.btnVolverigis.Location = new System.Drawing.Point(399, 273);
             this.btnVolverigis.Name = "btnVolverigis";
             this.btnVolverigis.Size = new System.Drawing.Size(75, 23);
             this.btnVolverigis.TabIndex = 1;
@@ -66,7 +68,7 @@
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(331, 205);
+            this.txtPass.Location = new System.Drawing.Point(331, 184);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(124, 20);
             this.txtPass.TabIndex = 3;
@@ -84,7 +86,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(236, 208);
+            this.label2.Location = new System.Drawing.Point(236, 187);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 5;
@@ -100,11 +102,42 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Crear Usuario";
             // 
+            // boxArea
+            // 
+            this.boxArea.FormattingEnabled = true;
+            this.boxArea.Items.AddRange(new object[] {
+            "Sistemas",
+            "Compras",
+            "Recursos Humanos",
+            "Contaduria",
+            "Atencion al Socio",
+            "Seguridad",
+            "Pañol",
+            "Golf",
+            "Tenis"});
+            this.boxArea.Location = new System.Drawing.Point(331, 227);
+            this.boxArea.Name = "boxArea";
+            this.boxArea.Size = new System.Drawing.Size(121, 21);
+            this.boxArea.TabIndex = 8;
+            this.boxArea.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(232, 235);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Area/Sector";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // Registrarse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.boxArea);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -114,6 +147,7 @@
             this.Controls.Add(this.btnRegis1);
             this.Name = "Registrarse";
             this.Text = "Registrarse";
+            this.Load += new System.EventHandler(this.Registrarse_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,5 +162,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox boxArea;
+        private System.Windows.Forms.Label label4;
     }
 }

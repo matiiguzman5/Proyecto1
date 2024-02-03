@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddTarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTarea.Designer.cs">
+      <DependentUpon>AddTarea.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controladores\Db_Controller.cs" />
     <Compile Include="Controladores\User_Controller.cs" />
     <Compile Include="Login.cs">
@@ -53,6 +59,12 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Program.cs" />
@@ -68,8 +80,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UsuariosDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddTarea.resx">
+      <DependentUpon>AddTarea.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -46,11 +46,26 @@ namespace Proyecto1
             Usuario nuevoUsuario = new Usuario
             {
                 user = usuario,
-                Contraseña = contraseña
+                Contrasenia = contraseña
             };
 
             
            
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Registrarse_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -29,7 +29,9 @@ namespace Proyecto1
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            Main ingresar = new Main();
+            ingresar.Show();
+            this.Hide();
         }
 
         private void btnRegis_Click(object sender, EventArgs e)

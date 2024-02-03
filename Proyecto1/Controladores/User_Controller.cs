@@ -64,7 +64,7 @@ namespace TinderFut1.Controladores
             SqlCommand cmd = new SqlCommand(query, Db_Controller.connection);
             cmd.Parameters.AddWithValue("@id", obtMaxId() + 1);
             cmd.Parameters.AddWithValue("@usuario", users.user);
-            cmd.Parameters.AddWithValue("@contraseña", users.Contraseña);
+            cmd.Parameters.AddWithValue("@contraseña", users.Contrasenia);
             
             try
             {
