@@ -45,8 +45,8 @@ namespace Proyecto1
             
             Usuario nuevoUsuario = new Usuario
             {
-                user = usuario,
-                Contrasenia = contraseña
+                correo = usuario,
+                contrasena = contraseña
             };
 
             

@@ -11,27 +11,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-
-
-namespace TinderFut1.Controladores
+namespace Proyecto1.Controladores
 {
     class User_controller
     {
-        public static bool autenticar(string usuario, string pass, bool hasheado)
+        public static bool autenticar(string usuario, string pass)
         {
             Usuario user = new Usuario();
-            string query = "select * from dbo.usuario where Usuario = @usuario and contraseña = @contraseña ; ";
+            string query = "select * from dbo.usuario where correo = @correo and contrasena = @contrasena;\r\n";
 
             SqlCommand cmd = new SqlCommand(query, Db_Controller.connection);
-            cmd.Parameters.AddWithValue("@usuario", usuario);
-            if (hasheado)
-            {
-                cmd.Parameters.AddWithValue("@contraseña", pass);
-            }
-            else
-            {
-                //cmd.Parameters.AddWithValue("@contraseña", hc.PassHash(pass));
-            }
+            cmd.Parameters.AddWithValue("@correo", usuario);
+            
+            cmd.Parameters.AddWithValue("@contrasena", pass);
+        
 
             try
             {
@@ -40,8 +33,12 @@ namespace TinderFut1.Controladores
 
                 while (reader.Read())
                 {
-                    Trace.WriteLine("Usuario encontrado, nombre " + reader.GetString(1));
-                    user = new Usuario(reader.GetInt32(0), reader.GetString(1), "", reader.GetInt32(3));
+                    user = new Usuario();
+                    user.Id = reader.GetInt32(0);
+                    user.correo = reader.GetString(1);
+                    user.contrasena = reader.GetString(2);
+
+                    Program.logueado = user;
                 }
                 reader.Close();
                 Db_Controller.connection.Close();
@@ -49,22 +46,22 @@ namespace TinderFut1.Controladores
             }
             catch (Exception ex)
             {
-
                 throw new Exception("Hay un error en la Query: " + ex.Message);
+                
             }
 
         }
         public static bool crearUsuario(Usuario users)
         {
-            string query = "insert into dbo.Usuario values" +
-                "(@usuario, " +
-                "@contraseña, " +
+            string query = "insert into dbo.usuario values" +
+                "(@correo, " +
+                "@contrasena, " +
                 "@rol);";
 
             SqlCommand cmd = new SqlCommand(query, Db_Controller.connection);
             cmd.Parameters.AddWithValue("@id", obtMaxId() + 1);
-            cmd.Parameters.AddWithValue("@usuario", users.user);
-            cmd.Parameters.AddWithValue("@contraseña", users.Contrasenia);
+            cmd.Parameters.AddWithValue("@usuario", users.correo);
+            cmd.Parameters.AddWithValue("@contraseña", users.contrasena);
             
             try
             {
@@ -84,7 +81,7 @@ namespace TinderFut1.Controladores
         public static int obtMaxId()
         {
             int MaxId = 0;
-            string query = "select Max(id) from dbo.Usuario;";
+            string query = "select Max(id) from dbo.usuario;";
 
             SqlCommand cmd = new SqlCommand(query, Db_Controller.connection);
 
@@ -107,5 +104,4 @@ namespace TinderFut1.Controladores
             }
         }
     }
-
 }

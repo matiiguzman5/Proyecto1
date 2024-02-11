@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddTarea.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddTarea.Designer.cs">
-      <DependentUpon>AddTarea.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controladores\Db_Controller.cs" />
     <Compile Include="Controladores\User_Controller.cs" />
     <Compile Include="Login.cs">
@@ -80,9 +74,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UsuariosDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddTarea.resx">
-      <DependentUpon>AddTarea.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

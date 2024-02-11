@@ -17,7 +17,7 @@ namespace Proyecto1.Controladores
         {
             var builder = new SqlConnectionStringBuilder();
 
-            builder.DataSource = @"(localdb)\Local";
+            builder.DataSource = @"MATIAS\SQLEXPRESS";
             builder.InitialCatalog = "Usuarios";
             builder.IntegratedSecurity = true;
 
