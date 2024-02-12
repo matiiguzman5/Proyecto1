@@ -12,13 +12,16 @@ namespace Proyecto1.Modelo
         public string correo { get; set; }
         public string contrasena { get; set; }
 
+        public string sector { get; set; }
+
     
-    public Usuario(int Id, string correo, string Contrasena)
-    {
+    public Usuario(int Id, string correo, string Contrasena, string sector)
+        {
             this.correo = correo;
             contrasena = Contrasena;
+            this.sector = sector;
         }
-    public Usuario()
+        public Usuario()
         {
             
         }

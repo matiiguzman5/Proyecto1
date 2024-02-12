@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -39,15 +40,19 @@ namespace Proyecto1
 
         private void btnRegis1_Click(object sender, EventArgs e)
         {
-            string usuario = txtNomUser.Text;
-            string contraseña = txtPass.Text;
 
-            
-            Usuario nuevoUsuario = new Usuario
+            Usuario usr = new Usuario(0, txtNomUser.Text, txtPass.Text, boxArea.Text);
+
+            if (User_controller.crearUsuario(usr))
             {
-                correo = usuario,
-                contrasena = contraseña
-            };
+                MessageBox.Show("Usuario creado con exito.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else
+            {
+                MessageBox.Show("No se pudo crear el Usuario." , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+                     
+            
 
             
            

@@ -24,6 +24,8 @@ namespace Proyecto1.Controladores
             cmd.Parameters.AddWithValue("@correo", usuario);
             
             cmd.Parameters.AddWithValue("@contrasena", pass);
+
+            
         
 
             try
@@ -37,6 +39,7 @@ namespace Proyecto1.Controladores
                     user.Id = reader.GetInt32(0);
                     user.correo = reader.GetString(1);
                     user.contrasena = reader.GetString(2);
+                    user.sector = reader.GetString(3);
 
                     Program.logueado = user;
                 }
@@ -53,31 +56,29 @@ namespace Proyecto1.Controladores
         }
         public static bool crearUsuario(Usuario users)
         {
-            string query = "insert into dbo.usuario values" +
-                "(@correo, " +
-                "@contrasena, " +
-                "@rol);";
+            string query = "INSERT INTO dbo.usuario (correo, contrasena, sector) VALUES (@correo, @contrasena, @sector);";
 
             SqlCommand cmd = new SqlCommand(query, Db_Controller.connection);
-            cmd.Parameters.AddWithValue("@id", obtMaxId() + 1);
-            cmd.Parameters.AddWithValue("@usuario", users.correo);
-            cmd.Parameters.AddWithValue("@contraseña", users.contrasena);
-            
+            cmd.Parameters.AddWithValue("@correo", users.correo);
+            cmd.Parameters.AddWithValue("@contrasena", users.contrasena);
+            cmd.Parameters.AddWithValue("@sector", users.sector);
+
             try
             {
                 Db_Controller.connection.Open();
                 cmd.ExecuteNonQuery();
-                Db_Controller.connection.Close();
                 return true;
             }
             catch (Exception ex)
             {
-
                 throw new Exception("Hay un error en la Query" + ex.Message);
-
             }
-
+            finally
+            {
+                Db_Controller.connection.Close();
+            }
         }
+
         public static int obtMaxId()
         {
             int MaxId = 0;

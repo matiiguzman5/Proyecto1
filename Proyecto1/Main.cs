@@ -18,6 +18,8 @@ namespace Proyecto1
             InitializeComponent();
             label5.Text = "Bienvenido " + Program.logueado.correo;
 
+            label6.Text = "Sector : " + Program.logueado.sector;
+
             //if(Program.logueado == 1)
         }
         private void label5_Click(object sender, EventArgs e)
@@ -107,7 +109,10 @@ namespace Proyecto1
             FinishedBox.DataSource = tareas;
         }
 
-       
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
