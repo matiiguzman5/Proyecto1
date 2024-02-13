@@ -44,6 +44,8 @@
             this.BtnMovePending = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.AdmButton = new System.Windows.Forms.Button();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PendingBox
@@ -201,11 +203,33 @@
             this.label6.Text = "label6";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // AdmButton
+            // 
+            this.AdmButton.Location = new System.Drawing.Point(422, 14);
+            this.AdmButton.Name = "AdmButton";
+            this.AdmButton.Size = new System.Drawing.Size(85, 29);
+            this.AdmButton.TabIndex = 16;
+            this.AdmButton.Text = "Usuarios";
+            this.AdmButton.UseVisualStyleBackColor = true;
+            this.AdmButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Location = new System.Drawing.Point(537, 14);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(85, 29);
+            this.closeBtn.TabIndex = 17;
+            this.closeBtn.Text = "Salir";
+            this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.closeBtn);
+            this.Controls.Add(this.AdmButton);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnMovePending);
@@ -224,6 +248,7 @@
             this.Controls.Add(this.PendingBox);
             this.Name = "Main";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +272,7 @@
         private System.Windows.Forms.Button BtnMovePending;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button AdmButton;
+        private System.Windows.Forms.Button closeBtn;
     }
 }

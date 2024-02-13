@@ -11,7 +11,7 @@ namespace Proyecto1.Controladores
     internal static class Db_Controller
     {
 
-        private static string connectionString = "";
+        public static string connectionString = "";
         public static SqlConnection connection;
         public static void initialize()
         {

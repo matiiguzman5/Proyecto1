@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdmUsers.Designer.cs">
+      <DependentUpon>AdmUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controladores\Db_Controller.cs" />
     <Compile Include="Controladores\User_Controller.cs" />
     <Compile Include="Login.cs">
@@ -74,6 +80,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UsuariosDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UsuariosDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsuariosDataSet1.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdmUsers.resx">
+      <DependentUpon>AdmUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +125,17 @@
     </None>
     <None Include="UsuariosDataSet.xss">
       <DependentUpon>UsuariosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UsuariosDataSet1.xsc">
+      <DependentUpon>UsuariosDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="UsuariosDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UsuariosDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UsuariosDataSet1.xss">
+      <DependentUpon>UsuariosDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

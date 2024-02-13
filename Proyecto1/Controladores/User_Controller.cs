@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 namespace Proyecto1.Controladores
@@ -104,5 +105,69 @@ namespace Proyecto1.Controladores
                 throw new Exception("Hay un error en la Query: " + ex.Message);
             }
         }
+        public static Usuario obtenerinfoUser(string correo)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Db_Controller.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM dbo.usuario WHERE correo = @correo";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@correo", correo);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                
+                                int id = Convert.ToInt32(reader["id"]);
+                                string user = Convert.ToString(reader["correo"]);
+                                string contrasena = Convert.ToString(reader["contrasena"]);
+                                string sector = Convert.ToString(reader["sector"]);
+
+                                return new Usuario (id, user , contrasena, sector);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Usuario o contraseña incorrecta : {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+                    
+            return null;
+        }
+        public static bool EliminarUser(int id)
+        {
+            try
+            {
+
+                using (SqlConnection connection = new SqlConnection(Db_Controller.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "DELETE FROM dbo.usuario WHERE id = @id";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar el Usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
+
 }

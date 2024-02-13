@@ -20,7 +20,13 @@ namespace Proyecto1
 
             label6.Text = "Sector : " + Program.logueado.sector;
 
-            //if(Program.logueado == 1)
+            if (Program.logueado.sector == "Sistemas")
+            {
+                AdmButton.Show();
+            } else
+            {
+                AdmButton.Hide();
+            }
         }
         private void label5_Click(object sender, EventArgs e)
         {
@@ -110,6 +116,23 @@ namespace Proyecto1
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdmUsers admin = new AdmUsers();
+            admin.Show();
+            this.Hide();
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
         {
 
         }
